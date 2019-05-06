@@ -1,0 +1,25 @@
+"*":
+  "autocomplete-plus":
+    autoActivationDelay: 10
+    confirmCompletion: "tab"
+    maxVisibleSuggestions: 5
+  core:
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "firewatch-syntax"
+    ]
+  editor:
+    fontSize: 23
+    invisibles: {}
+  "exception-reporting":
+    userId: "256dff73-15a8-459a-b214-5c903b25360e"
+  "linter-rubocop":
+    command: "/Users/stephen.hunter/.rbenv/shims/rubocop  --config /Users/stephen.hunter/code/healcode/.rubocop.yml"
+    disableWhenNoConfigFile: true
+  "linter-ui-default": {}
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+  "tree-view":
+    sortFoldersBeforeFiles: true
