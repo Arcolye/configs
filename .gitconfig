@@ -2,6 +2,7 @@
 	co = checkout
 	cm = commit -m
 	s = status
+	amend = commit --amend -C HEAD
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	branch-cleanup = "!git branch --merged master | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 	b = branch --sort=-committerdate
