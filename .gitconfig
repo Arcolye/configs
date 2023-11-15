@@ -4,13 +4,15 @@
 	s = status
 	amend = commit --amend -C HEAD
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	branch-cleanup = "!git branch --merged master | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 	b = branch --sort=-committerdate
 	save = commit -a -m "SAVE"
+	diff-words = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
 [user]
-	email = stephen.hunter@mindbodyonline.com
+	email = stephen@fotiswebdesign.com
 [push]
 	default = current
   # "push the current branch back to the branch whose changes are usually integrated into the current branch"
   # "refuse to push if the upstream branch’s name is different from the local one"
 	# https://git-scm.com/docs/git-config#git-config-pushdefault
+[core]
+	editor = code --wait
