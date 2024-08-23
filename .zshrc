@@ -87,6 +87,8 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+EDITOR="code --wait"
+VISUAL="code --wait"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -99,8 +101,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias brew='sudo -Hu stephen brew'
 alias killrails="kill -9 $(lsof -i tcp:3000 -t)"
+alias r="bin/rails"
+alias g="git"
+alias gco="git b | fzf | xargs git co"
+alias gbd="git bm | fzf | xargs git b -d"
+alias repo="cd ~/code/\$(ls ~/code | fzf)"
+alias bench="/usr/bin/time -l"
 
 # Make rbenv work
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# To install useful keybindings and fuzzy completion:
+  # /opt/homebrew/opt/fzf/install
+
+# add postgres cli commands to path
+export PATH="/Applications/Postgres.app/Contents/Versions/16/bin:$PATH"
