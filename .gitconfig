@@ -7,8 +7,16 @@
 	b = branch --sort=-committerdate
 	save = commit -a -m "SAVE"
 	diff-words = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
+  sw = "!git b | fzf | xargs git co && git log --pretty=format:'%C(magenta)%s%Creset' HEAD~1..HEAD"
+  amend = "!f() { \
+    if [ -z \"$1\" ]; then \
+      git commit --amend -C HEAD; \
+    else \
+      git commit --fixup \"$1\" && git rebase -i --autosquash --autostash \"${1}^\"; \
+    fi \
+  }; f"
 [user]
-	email = stephen@fotiswebdesign.com
+	email = dev@sahv.com 
 [push]
 	# "set upstream tracking for the current branch"
 	autoSetupRemote = true
