@@ -110,9 +110,8 @@ alias gbd="git bm | fzf | xargs git b -d"
 alias repo="cd ~/code/\$(ls ~/code | fzf)"
 alias bench="/usr/bin/time -l"
 
-# Make rbenv work
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# Activate mise (manages node, ruby, python, etc.)
+eval "$(mise activate zsh)"
 
 # To install useful keybindings and fuzzy completion:
   # /opt/homebrew/opt/fzf/install
