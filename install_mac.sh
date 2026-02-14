@@ -5,16 +5,16 @@ set -e
 echo "Setting up macOS environment..."
 
 # Install Homebrew if not present
-if ! command -v brew &> /dev/null; then
-    echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if ! command -v brew &>/dev/null; then
+  echo "Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    # Add Homebrew to PATH for Apple Silicon Macs
-    if [[ -f /opt/homebrew/bin/brew ]]; then
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    fi
+  # Add Homebrew to PATH for Apple Silicon Macs
+  if [[ -f /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
 else
-    echo "Homebrew already installed"
+  echo "Homebrew already installed"
 fi
 
 # Update Homebrew
@@ -23,20 +23,20 @@ brew update
 # Install CLI tools
 echo "Installing CLI tools..."
 brew install \
-    zsh \
-    tmux \
-    fzf \
-    neovim \
-    git \
-    mise
+  zsh \
+  tmux \
+  fzf \
+  neovim \
+  git \
+  mise
 
 # Install GUI apps
 echo "Installing applications..."
 brew install --cask \
-    iterm2 \
-    visual-studio-code \
-    raycast \
-    karabiner-elements
+  ghostty \
+  visual-studio-code \
+  raycast \
+  karabiner-elements
 
 # Install fonts
 echo "Installing fonts..."
@@ -44,17 +44,10 @@ brew install --cask font-fira-code
 
 # Install Oh My Zsh if not present
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-    echo "Installing Oh My Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  echo "Installing Oh My Zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 else
-    echo "Oh My Zsh already installed"
-fi
-
-# Copy custom zsh theme
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-if [[ -f "$SCRIPT_DIR/sahv.zsh-theme" ]]; then
-    cp "$SCRIPT_DIR/sahv.zsh-theme" "$HOME/.oh-my-zsh/themes/"
-    echo "Copied sahv.zsh-theme to Oh My Zsh themes"
+  echo "Oh My Zsh already installed"
 fi
 
 # Link dotfiles

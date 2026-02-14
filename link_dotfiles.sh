@@ -8,5 +8,6 @@ DOTFILES_DIR="$SCRIPT_DIR/dotfiles"
 ln -sf "$DOTFILES_DIR/zshrc" ~/.zshrc
 ln -sf "$DOTFILES_DIR/tmux.conf" ~/.tmux.conf
 ln -sf "$DOTFILES_DIR/gitconfig" ~/.gitconfig
+ln -sf "$DOTFILES_DIR/sahv.zsh-theme" ~/.oh-my-zsh/themes/sahv.zsh-theme
 
 echo "Dotfiles linked from $DOTFILES_DIR"
