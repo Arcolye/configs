@@ -101,20 +101,16 @@ VISUAL="code --wait"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias brew='sudo -Hu stephen brew'
-alias killrails="kill -9 $(lsof -i tcp:3000 -t)"
-alias r="bin/rails"
-alias g="git"
-alias gco="git b | fzf | xargs git co"
-alias gbd="git bm | fzf | xargs git b -d"
+# alias brew='sudo -Hu stephen brew'
+# alias g="git"
 alias repo="cd ~/code/\$(ls ~/code | fzf)"
 alias bench="/usr/bin/time -l"
 
 # Activate mise (manages node, ruby, python, etc.)
 eval "$(mise activate zsh)"
 
-# To install useful keybindings and fuzzy completion:
-  # /opt/homebrew/opt/fzf/install
+# Source all scripts
+for script in ~/Documents/code/configs/scripts/*.sh; do
+  source "$script"
+done
 
-# add postgres cli commands to path
-export PATH="/Applications/Postgres.app/Contents/Versions/16/bin:$PATH"
