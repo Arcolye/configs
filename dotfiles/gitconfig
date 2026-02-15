@@ -17,6 +17,7 @@
   }; f"
 [user]
 	email = dev@sahv.com 
+	name = Stephen
 [push]
 	# "set upstream tracking for the current branch"
 	autoSetupRemote = true
