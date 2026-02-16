@@ -87,8 +87,8 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-EDITOR="code --wait"
-VISUAL="code --wait"
+# EDITOR="code --wait"
+# VISUAL="code --wait"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -104,13 +104,30 @@ VISUAL="code --wait"
 # alias brew='sudo -Hu stephen brew'
 # alias g="git"
 alias repo="cd ~/code/\$(ls ~/code | fzf)"
-alias bench="/usr/bin/time -l"
+if [[ "$(uname)" == "Darwin" ]]; then
+  alias bench="/usr/bin/time -l"
+else
+  alias bench="/usr/bin/time -v"
+fi
 
+
+# Auto-attach to tmux over SSH
+if [[ -n "$SSH_CONNECTION" && -z "$TMUX" ]]; then
+  tmux attach || tmux new
+fi
+
+# Start ssh-agent if not already running (macOS handles this automatically)
+if [[ -z "$SSH_AUTH_SOCK" ]]; then
+  eval "$(ssh-agent -s)" > /dev/null
+fi
+
+export PATH="$HOME/.local/bin:$PATH"
 # Activate mise (manages node, ruby, python, etc.)
 eval "$(mise activate zsh)"
 
 # Source all scripts
-for script in ~/Documents/code/configs/scripts/*.sh; do
+for script in ~/.configs/scripts/*.sh; do
   source "$script"
 done
 
+# eval "$(/home/sahv/.local/bin/mise activate zsh)"
