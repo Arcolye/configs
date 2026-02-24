@@ -129,6 +129,18 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "right_shift" },
+                                "parameters": { "basic.to_if_alone_timeout_milliseconds": 150 },
+                                "to": { "key_code": "right_shift" },
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": ["left_command"]
+                                    }
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
