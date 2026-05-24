@@ -55,11 +55,6 @@ fi
 # Link dotfiles
 "$SCRIPT_DIR/link_dotfiles.sh"
 
-# Link Karabiner config
-mkdir -p "$HOME/.config/karabiner"
-ln -sf "$SCRIPT_DIR/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
-echo "Linked Karabiner config"
-
 echo ""
 echo "macOS setup complete!"
 echo "Restart your terminal or run: source ~/.zshrc"

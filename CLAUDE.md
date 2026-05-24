@@ -34,6 +34,7 @@ Most dotfiles are managed via symlinks, not copies. `link_dotfiles.sh` creates:
 - `~/.tmux.conf` → `dotfiles/tmux.conf`
 - `~/.gitconfig` → `dotfiles/gitconfig`
 - `~/.oh-my-zsh/themes/sahv.zsh-theme` → `dotfiles/sahv.zsh-theme`
+- `~/.config/karabiner/karabiner.json` → `karabiner.json` when Karabiner-Elements is installed
 
 ## Tool Stack
 

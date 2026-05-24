@@ -27,5 +27,11 @@ ln -sf "$DOTFILES_DIR/tmux.conf" ~/.tmux.conf
 ln -sf "$DOTFILES_DIR/gitconfig" ~/.gitconfig
 ln -sf "$DOTFILES_DIR/sahv.zsh-theme" ~/.oh-my-zsh/themes/sahv.zsh-theme
 
+if [ -d "/Applications/Karabiner-Elements.app" ] || [ -d "$HOME/Applications/Karabiner-Elements.app" ]; then
+  mkdir -p "$HOME/.config/karabiner"
+  ln -sf "$SCRIPT_DIR/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
+  echo "Linked Karabiner config"
+fi
+
 echo "Dotfiles linked from $DOTFILES_DIR"
 echo "~/.zshrc loads $DOTFILES_DIR/zshrc"
