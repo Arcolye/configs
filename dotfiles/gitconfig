@@ -2,11 +2,19 @@
 	co = checkout
 	cm = commit -m
 	s = status
-	ss = status -s -b
 	amend = commit --amend -C HEAD
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lb = "!f() { \
+    base=$(git rev-parse --verify --quiet main || git rev-parse --verify --quiet master); \
+    git log --abbrev-commit --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %C(yellow)%d%Creset' \"$base..HEAD\"; \
+  }; f"
 	b = branch --sort=-committerdate
 	save = commit -a -m "SAVE"
+  unsave = "!f() { \
+    if [ \"$(git log -1 --format=%s)\" = \"SAVE\" ]; then \
+      git reset HEAD~1; \
+    fi \
+    }; f"
 	diff-words = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
   sw = "!git b | fzf | xargs git co && git log --pretty=format:'%C(magenta)%s%Creset' HEAD~1..HEAD"
   amend = "!f() { \
